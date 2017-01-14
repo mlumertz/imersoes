@@ -65,7 +65,7 @@ def novo_cliente_view(request):
             form = ClienteForm(request.user, request.POST)
             if form.is_valid():
                 cliente = form.save()
-                email = EmailMessage('Seu amigo ' + cliente.Nome + ' indicou você!' , str(cliente.WebKey) ,settings.EMAIL_HOST_USER, ['gabi.favieiro@gmail.com'])
+                email = EmailMessage('Seu psicologo ' + request.user.username + ' iniciou um processo de feedback com você!' , str(cliente.WebKey) ,settings.EMAIL_HOST_USER, ['gabi.favieiro@gmail.com'])
                 email.send()
                 return HttpResponseRedirect('/Psicologo')
 
@@ -82,15 +82,21 @@ def cliente_view(request, WebKey):
     lista = Indicado.objects.filter(QuemIndicou=cliente)
 
     if lista.count() > 0:
-        IndicadoFormSet = inlineformset_factory(Cliente, Indicado, fields=('Nome', 'Email'),extra=0, formset=BaseIndicadoFormSet)
+        IndicadoFormSet = inlineformset_factory(Cliente, Indicado, fields=('Nome', 'Email')) #, formset=BaseIndicadoFormSet)
     else:
-        IndicadoFormSet = inlineformset_factory(Cliente, Indicado, fields=('Nome', 'Email'),extra=1, formset=BaseIndicadoFormSet)
+        IndicadoFormSet = inlineformset_factory(Cliente, Indicado, fields=('Nome', 'Email')) #, formset=BaseIndicadoFormSet)
 
     if request.method == 'POST':
         formset = IndicadoFormSet(request.POST, instance=cliente)
 
         if  formset.is_valid():
             formset.save()
+            newlista = Indicado.objects.filter(QuemIndicou=cliente)
+            
+            for indicado in newlista:
+                email = EmailMessage('Seu amigo ' + indicado.Nome + ' indicou você!' , str(indicado.WebKey) ,settings.EMAIL_HOST_USER, ['gabi.favieiro@gmail.com'])
+                email.send()
+
             return render_to_response('sucesso.html')
 
 
@@ -107,3 +113,22 @@ def cliente_view(request, WebKey):
 
 def sucesso(request):
     return render_to_response('sucesso.html')
+
+def indicado_view(request, WebKey):
+
+    indicado = Indicado.objects.get(WebKey=WebKey)
+
+    if request.method == 'POST':
+        form = IndicadoPageForm(request.POST, instance = indicado)
+
+        if  form.is_valid():
+            form.save()
+            return render_to_response('sucesso.html')
+
+
+    else:
+        args = {}
+        args.update(csrf(request))
+        args['form'] = IndicadoPageForm( instance = indicado)
+
+        return render_to_response( 'indicado.html', args)

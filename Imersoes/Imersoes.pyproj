@@ -61,6 +61,7 @@
     <Content Include="Feedbacks\templates\novo_cliente.html" />
     <Content Include="Feedbacks\templates\Psicologo.html" />
     <Content Include="Feedbacks\templates\sucesso.html" />
+    <Content Include="Feedbacks\templates\indicado.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>

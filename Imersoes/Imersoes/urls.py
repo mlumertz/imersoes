@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^Psicologo/novo_cliente/$', views.novo_cliente_view),
     url(r'^Cliente/(?P<WebKey>[0-9a-z-]+)$', views.cliente_view, name = 'cliente' ),
     url(r'^Cliente/sucesso/$', views.sucesso),
+    url(r'^Indicado/(?P<WebKey>[0-9a-z-]+)$', views.indicado_view, name = 'indicado' ),
 ]
 
 

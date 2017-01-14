@@ -29,6 +29,14 @@ class IndicadoForm(ModelForm):
         model = Indicado
         fields = ['Nome', 'Email']
 
+class IndicadoPageForm(ModelForm):
+    
+    class Meta:
+        model = Indicado
+        fields = ['Resposta1', 'Resposta2']
+
+
+
 
 class BaseIndicadoFormSet(BaseInlineFormSet):
     def clean(self):

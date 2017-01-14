@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Pagina do indicado {{form.Nome}}</title>
+     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <!-- Bootstrap -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    
+   
+    <link href="{% static 'css/signin.css' %}" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+
+  <form class="form-signin" action="" method="post"> {% csrf_token %}
+        <h2 class="form-signin-heading">Por favor, responda as seguintes perguntas.</h2>
+        <p>Pergunta 01: {{form.Resposta1}}</p>
+        <p>Pergunta 02: {{form.Resposta2}}</p>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit" value="Register">Enviar</button>
+  </form>
+
+    </div> <!-- /container -->
+
+</body>
+</html>
