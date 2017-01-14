@@ -1,0 +1,17 @@
+﻿<html>
+<head><title>Página do Psicólogo</title></head>
+
+<body>
+    <h1>Bem vindo {{user.username}} !</h1>
+
+    <h2>Seus clientes são:</h2>
+    {% for cliente in clientes %}
+    <p> <a href="/Cliente/{{cliente.WebKey}}">{{cliente.Nome}}</a> </p>
+
+    {%endfor%}
+
+    <p>Clique <a href="Psicologo/novo_cliente/">aqui</a> para adicionar novo Cliente.</p>
+
+    <p>Clique <a href="/logout/">aqui</a> para sair do sistema.</p>
+</body>
+</html>
