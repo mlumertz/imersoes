@@ -65,7 +65,7 @@ def novo_cliente_view(request):
             form = ClienteForm(request.user, request.POST)
             if form.is_valid():
                 cliente = form.save()
-                email = EmailMessage('Seu psicologo ' + request.user.username + ' iniciou um processo de feedback com você!' , str(cliente.WebKey) ,settings.EMAIL_HOST_USER, ['gabi.favieiro@gmail.com'])
+                email = EmailMessage('Seu psicologo ' + request.user.username + ' iniciou um processo de feedback com você!' ,  'mlumertz.pythonanywhere.com/Cliente/' + str(cliente.WebKey) ,settings.EMAIL_HOST_USER, ['gabi.favieiro@gmail.com'])
                 email.send()
                 return HttpResponseRedirect('/Psicologo')
 
@@ -94,7 +94,7 @@ def cliente_view(request, WebKey):
             newlista = Indicado.objects.filter(QuemIndicou=cliente)
             
             for indicado in newlista:
-                email = EmailMessage('Seu amigo ' + indicado.Nome + ' indicou você!' , str(indicado.WebKey) ,settings.EMAIL_HOST_USER, ['gabi.favieiro@gmail.com'])
+                email = EmailMessage('Seu amigo ' + indicado.Nome + ' indicou você!' , 'mlumertz.pythonanywhere.com/Indicado/' + str(indicado.WebKey) ,settings.EMAIL_HOST_USER, ['gabi.favieiro@gmail.com'])
                 email.send()
 
             return render_to_response('sucesso.html')
