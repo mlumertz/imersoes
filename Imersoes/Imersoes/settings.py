@@ -33,13 +33,14 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # Add your apps here to enable them
+    'Feedbacks',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Feedbacks'
+    
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -134,3 +135,5 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'imersoesnoreply@gmail.com'
 EMAIL_HOST_PASSWORD = 'eucaliptos'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+SESSION_COOKIE_AGE = 600

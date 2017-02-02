@@ -20,15 +20,18 @@ class Cliente(models.Model):
     )
 
 
+
+    
+
     Nome = models.CharField(max_length=16)
     Email = models.EmailField()
     Observacoes = models.TextField()
     WebKey = models.UUIDField( default=uuid.uuid4, editable=False, unique= True)
     Orientador = models.ForeignKey(User)
     Status = models.BooleanField(default=False)
-
+    CRP = models.CharField(max_length=16)
     FeedbackNome = models.CharField(max_length=36)
-    TipoDeFeedback = models.CharField(max_length=12, choices= FEEDBACK_CHOICES, default=fb1)
+    TipoDeFeedback = models.CharField(max_length=36, choices= FEEDBACK_CHOICES, default=fb1)
     Deadline = models.DateField(null=True, blank = True)
     Arquivo = models.FileField()
 
@@ -38,16 +41,39 @@ class Cliente(models.Model):
     class Meta:
         verbose_name_plural = 'Clientes'
 
+class Categoria (models.Model):
+
+    cat = models.CharField(max_length=16)
+    cliente = models.ForeignKey(Cliente)
+    def __str__(self):
+        return self.Nome
+
+    class Meta:
+        verbose_name_plural = 'Categorias'
 
 class Indicado(models.Model):
+
+    ct1= 'Amigos'
+    ct2= 'Família'
+    ct3= 'Trabalho'
+    ct4= 'Universidade'
+
+    CATEGORIAS_CHOICES = (
+    (ct1, 'Amigos') ,
+    (ct2, 'Família'),
+    (ct3, 'Trabalho'),
+    (ct4, 'Universidade'),
+    )
+
     Nome = models.CharField(max_length=100)
-    Categoria = models.CharField(max_length=16)
     Email = models.EmailField(max_length=100)
     WebKey = models.UUIDField(default=uuid.uuid4, editable=False,  unique= True)
-    QuemIndicou = models.ForeignKey(Cliente)
+    #Categ = models.CharField( max_length=36, choices= CATEGORIAS_CHOICES, default=ct1)
+    Categ = models.CharField(max_length=36)
     Status = models.BooleanField(default=False)
     Resposta1 = models.TextField()
     Resposta2 = models.TextField()
+    cliente = models.ForeignKey(Cliente)
 
     def __str__(self):
         return self.Nome

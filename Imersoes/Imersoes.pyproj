@@ -48,9 +48,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Feedbacks\static\css\bootstrap.css" />
+    <Content Include="Feedbacks\static\css\mbr-additional.css" />
     <Content Include="Feedbacks\static\css\signin.css" />
-    <Content Include="Feedbacks\static\jquery.formset.js" />
+    <Content Include="Feedbacks\static\css\sticky-footer-navbar.css" />
+    <Content Include="Feedbacks\static\css\style.css">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Feedbacks\static\images\add.png" />
+    <Content Include="Feedbacks\static\images\delete.png" />
+    <Content Include="Feedbacks\static\images\logo.png" />
+    <Content Include="Feedbacks\static\images\edit.png" />
+    <Content Include="Feedbacks\static\images\logo_branco.png" />
+    <Content Include="Feedbacks\static\images\wmfb.png" />
+    <Content Include="Feedbacks\static\js\autocomplete-init.js" />
+    <Content Include="Feedbacks\static\js\dynamic.formfields.js" />
+    <Content Include="Feedbacks\static\js\jquery-1.3.2.min.js" />
+    <Content Include="Feedbacks\static\js\jquery.autocomplete.min.js" />
+    <Content Include="Feedbacks\static\js\jquery.formset.js" />
+    <Content Include="Feedbacks\templates\admin\change_password.html" />
     <Content Include="Feedbacks\templates\base.html" />
+    <Content Include="Feedbacks\templates\cadastro_indicados.html" />
     <Content Include="Feedbacks\templates\cadastro_password.html" />
     <Content Include="Feedbacks\templates\cliente.html" />
     <Content Include="Feedbacks\templates\index.html" />
@@ -59,9 +76,17 @@
     <Content Include="Feedbacks\templates\login.html" />
     <Content Include="Feedbacks\templates\logout.html" />
     <Content Include="Feedbacks\templates\novo_cliente.html" />
+    <Content Include="Feedbacks\templates\profile.html" />
     <Content Include="Feedbacks\templates\Psicologo.html" />
+    <Content Include="Feedbacks\templates\registration\login.html" />
+    <Content Include="Feedbacks\templates\registration\password_reset_complete.html" />
+    <Content Include="Feedbacks\templates\registration\password_reset_confirm.html" />
+    <Content Include="Feedbacks\templates\registration\password_reset_done.html" />
+    <Content Include="Feedbacks\templates\registration\password_reset_email2.html" />
+    <Content Include="Feedbacks\templates\registration\password_reset_form.html" />
     <Content Include="Feedbacks\templates\sucesso.html" />
     <Content Include="Feedbacks\templates\indicado.html" />
+    <Content Include="Feedbacks\templates\MudarSenha.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -69,7 +94,11 @@
     <Folder Include="Feedbacks\migrations\" />
     <Folder Include="Feedbacks\static\" />
     <Folder Include="Feedbacks\static\css\" />
+    <Folder Include="Feedbacks\static\images\" />
+    <Folder Include="Feedbacks\static\js\" />
     <Folder Include="Feedbacks\templates\" />
+    <Folder Include="Feedbacks\templates\admin\" />
+    <Folder Include="Feedbacks\templates\registration\" />
     <Folder Include="Imersoes\" />
   </ItemGroup>
   <ItemGroup>

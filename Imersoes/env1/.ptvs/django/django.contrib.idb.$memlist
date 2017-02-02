@@ -1,13 +1,13 @@
-flatpages
+humanize
 messages
-syndication
+admindocs
 sites
 sitemaps
 postgres
 staticfiles
-admindocs
+flatpages
 auth
-humanize
+syndication
 contenttypes
 redirects
 gis

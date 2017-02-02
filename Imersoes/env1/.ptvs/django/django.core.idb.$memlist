@@ -1,4 +1,4 @@
-checks
+mail
 servers
 signals
 signing
@@ -12,4 +12,4 @@ serializers
 management
 cache
 paginator
-mail
+checks
